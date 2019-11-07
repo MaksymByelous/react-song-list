@@ -1,16 +1,15 @@
 import React from 'react';
-import ReactDom from 'react-dom';
-import {Provider} from 'react-redux';
-import {createStore, applyMiddleware} from "redux";
-import thunk from "redux-thunk";
+import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
 import App from './components/app';
 import reducers from './reducers';
+import SongList from "./components/song-list";
 
-const store = createStore(reducers, applyMiddleware(thunk))
-
-ReactDom.render(
-    <Provider store={store}>
-        <App />
+ReactDOM.render(
+    <Provider store={createStore(reducers)}>
+        <App>
+        </App>
     </Provider>,
     document.querySelector('#root')
 );
